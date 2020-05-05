@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple To - Do List With Javascript</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        background-color: rgb(228, 228, 228);
+        }
+
+    h4{
+        text-align: center;
+    }
+    .form{
+        margin-left: 20%;
+        display: flex;
+    }
+    h5{
+        text-align: center;
+    }
+    #info{
+        margin-left: 39%;
+        margin-top: 5px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .form-control{
+        width: 70%;
+    }
+
+    @media(max-width: 600px ){
+        .form{
+        margin-left: 8%;
+        display: flex;
+    }
+
+    #info{
+        margin-left: 6%;
+        margin-top: 5px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    }
+</style>
+
+<body>
+    <h4> To-Do list Sederhana Dengan Javascript</h4>
+    <form action="" class="form">
+    <input type="text" class="form-control todo" placeholder="Apa Rencanamu Hari ini...">
+    <button type="submit" class="btn btn-primary" onclick="add()">simpan</button>
+    </form>
+    <br>
+    <h5>Daftar List Anda</h5>
+    <hr>
+    <div class="todos">
+        <ul>
+            <ul class="task">
+
+            </ul>
+        </ul>
+    </div>
+
+
+    <script>
+        document.querySelector('.form').addEventListener('submit',function(e){
+                e.preventDefault();
+
+        });
+
+        let todos = [];
+        function add() {
+            var task = [];
+            let todo = document.querySelector('.todo');
+            if(todo.value != ''){
+                todos.push(todo.value);
+            }
+            else{
+                alert('Input Tidak Boleh Kosong')
+            }
+            todo.value = "";
+            for (let i = 0; i < todos.length; i++) {
+
+                task += "<li class='btn btn-info' id='info'>" + todos[i] + "</li>";
+            }
+            let show = document.querySelector('.task');
+            show.innerHTML = task;
+        }
+        
+
+    </script>
+
+</body>
+
+</html>
